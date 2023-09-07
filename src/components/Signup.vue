@@ -1,6 +1,8 @@
 <script setup lang="ts">
     import {ref, reactive} from 'vue'
+    import {useRouter} from 'vue-router'
 
+    const router = useRouter()
     let isError = ref<boolean>(false)
     const errorMessage = ref<string>('')
 
@@ -23,9 +25,9 @@
             isError.value = true
             errorMessage.value = results.message 
         }
-        else{
-            isError.value = false
-            errorMessage.value = ''
+        else if(request.status === 201){
+            console.log(errorMessage.value = results.message)
+            router.push({ name:'multiform', params:{name: results.username}})
         }
     }
 
@@ -50,7 +52,7 @@
                 v-model="data.password"
             >
             <button type="submit">signup</button>
-            <p>Already have an account? <a href="#/">login</a></p>
+            <p>Already have an account? <router-link to="/">login</router-link></p>
        </form>
     </div>
 </template>
@@ -60,6 +62,7 @@
 .container{
     width: 350px;
     border: 1px solid white;
+    background: #3F3E41;
     display: flex;
     justify-content: center;
     align-items: center;

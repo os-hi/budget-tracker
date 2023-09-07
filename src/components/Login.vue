@@ -1,12 +1,16 @@
 <script setup lang="ts">
     import {reactive, ref} from 'vue'
-    import {User} from '../types/types'
+    import {User} from '../utils/types'
+    import {useRouter} from 'vue-router'
+
+    const router = useRouter()
 
     let isError = ref<boolean>(false)
     const errorMessage = ref<string>('')
     const data = reactive<User>({
         username: '',
-        password: ''
+        password: '',
+        
     })
     async function handleSubmit(){
         try{
@@ -24,7 +28,7 @@
             }
             else if(request.status === 202){
                 console.log(errorMessage.value = results.message)
-                
+                router.push({ name:'dashboard', params:{name: results.username}})
             }
         }
         catch(error){
@@ -87,4 +91,4 @@ form{
 .register{
     color: blue;
 }
-</style>
+</style>../utils/types
