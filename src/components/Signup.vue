@@ -62,7 +62,7 @@
 .container{
     width: 350px;
     border: 1px solid white;
-    background: #3F3E41;
+    background: white;
     display: flex;
     justify-content: center;
     align-items: center;

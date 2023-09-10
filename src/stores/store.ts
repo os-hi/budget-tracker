@@ -115,7 +115,7 @@ export const useCategoryStore = defineStore('categoryStore', ()=>{
         }
 
     ])
-
+    
     let income = computed(() =>{
         let sum = 0
         for(let category of state){
@@ -179,5 +179,10 @@ export const useCategoryStore = defineStore('categoryStore', ()=>{
         }
         return sum
     })
+
+    let data = {
+        name: 'oshi'
+    }
+    return {data}
     return {state,income, household}
 })

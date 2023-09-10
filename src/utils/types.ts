@@ -28,5 +28,6 @@ export type Portfolio = {
     recurring: 'day' | 'week' | 'month' | 'year'
 }
 
+//TODO: yung portfolio may reference sa categ
 
 

@@ -1,9 +1,15 @@
 <script setup lang="ts">
     import Form from '../components/Form.vue';
-    import { useCategoryStore } from '../stores/store'
     import {ref, computed} from 'vue'
+    import {useRouter} from 'vue-router'
+    import { useCategoryStore } from '../stores/store'
 
+
+    const router = useRouter()
     const categoryStore = useCategoryStore()
+
+
+
     const findCategory = ref(0)
     const currentTab = ref(categoryStore.state[findCategory.value].name)
     const navigations = categoryStore.state
@@ -29,7 +35,8 @@
       currentTab.value = categoryStore.state[findCategory.value].name
     }
     function submitClick(){
-            console.log("total")  
+            console.log("total") 
+            router.push({ name:'dashboard', params:{name:'oshi'}}) 
     }
 </script>
 

@@ -4,7 +4,7 @@
 
 <template>
     <div>
-        <h1>WELCOME OSHI</h1>
+        <h1>WELCOME {{ $route.params.name }}</h1>
     </div>
 </template>
 <style scoped>
